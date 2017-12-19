@@ -1,0 +1,133 @@
+body, html {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: sans-serif;
+  text-align: center;
+  background: -webkit-radial-gradient(
+    #195dc6,
+    #0c2d60,
+    #020b19 /*el ultimo valor no debe tener coma sinono funciona eldegradado*/
+    );
+}
+h1{
+  color: #eee;
+  margin-top: 50px;
+}
+
+.nubes, .mapa {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+.nubes {
+  width: 200px;
+  height: 200px;
+  /*outline: 1px solid red;*/
+}
+
+.nubes img {
+  position: relative; /*para q funciones el z index (relative por q absolute desmaqueta) */
+  z-index: 20;
+}
+
+.mapa {
+  width: 200px;
+  height: 200px;
+  background-image: url(../img/mapa.png);
+  background-size: cover;
+  border-radius: 50%;
+  box-shadow: -40px -20px 10px 0px rgba(0, 0, 0, 0.1) inset,
+              -70px -40px 10px 0px rgba(0,0,0, .1) inset,
+              5px 5px 10px 0px rgba(255,255,255, .2) inset;
+  -webkit-animation: tierra-girando  15s infinite linear;
+
+}
+
+@-webkit-keyframes tierra-girando {
+  from{
+    background-position: left center;
+  }
+  to{
+    background-position: -396px center;
+  }
+}
+
+/*estrellas*/
+.estrella {
+  width: 2px;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  border-radius: 50%;
+
+}
+
+.estrella:nth-child(2) {
+  top: 30%;
+  left: 30%;
+}
+.estrella:nth-child(3) {
+  top: 90%;
+  left: 90%;
+}
+.estrella:nth-child(4) {
+  top: 20%;
+  left: 50%;
+}
+.estrella:nth-child(5) {
+  top: 30%;
+  left: 80%;
+}
+.estrella:nth-child(6) {
+  top: 20%;
+  left: 50%;
+}
+.estrella:nth-child(7) {
+  top: 70%;
+  left: 80%;
+}
+.estrella:nth-child(8) {
+  top: 80%;
+  left: 50%;
+}
+.estrella:nth-child(9) {
+  top: 35%;
+  left: 10%;
+}
+.estrella:nth-child(10) {
+  top: 60%;
+  left: 20%;
+}
+
+.estrella:nth-child(2n){
+  -webkit-animation: estrella-par 2s infinite;
+}
+
+@-webkit-keyframes estrella-par{
+  0% , 90%{
+    box-shadow: 0 0 3px 3px rgba(225, 225, 225, .3);
+  }
+  100%{
+    box-shadow: 0 0 16px 9px rgba(225, 225, 225, .3);
+  }
+}
+
+.estrella:nth-child(2n+1){
+  -webkit-animation: estrella-impar 2s infinite;
+}
+
+@-webkit-keyframes estrella-impar{
+  0%, 35% , 50%{
+    box-shadow: 0 0 3px 3px rgba(225, 225, 225, .3);
+  }
+  45%{
+    box-shadow: 0 0 16px 9px rgba(225, 225, 225, .3);
+  }
+}
